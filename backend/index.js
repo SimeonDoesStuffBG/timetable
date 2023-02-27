@@ -1,7 +1,8 @@
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
-const client = require("./client");
+const http = require("http");
+const fs = require("fs");
 
 const db = require("./config/db");
 
@@ -27,6 +28,18 @@ app.get("/couriers", (req, res) => {
 
     res.json(result);
   });
+});
+
+fs.readFile("../frontend/index.html", (err, html) => {
+  if (err) throw err;
+
+  http
+    .createServer((req, res) => {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.write(html);
+      res.end();
+    })
+    .listen(PORT);
 });
 
 app.get("/destinations", (req, res) => {
