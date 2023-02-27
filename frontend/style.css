@@ -1,0 +1,24 @@
+.display{
+    float: left;
+    margin: 10px;
+    margin-right: 20px;
+}
+
+.display *{
+    margin:5px;
+}
+
+.display table{
+    border: 2px solid black;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.display th{
+    background-color: greenyellow;
+}
+
+.display td, th{
+    border: 1px solid black;
+    padding: 3px;
+}

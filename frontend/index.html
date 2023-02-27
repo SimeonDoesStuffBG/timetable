@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timetable</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="display">
+        <select v-model="toDisplay">
+          <option :value="0">All</option>
+          <option :value="1">Pending</option>
+          <option :value="2">Active</option>
+          <option :value="3">Delivered</option>
+        </select>
+        <button @click="filterDisplay()">Apply filter</button>
+
+        <table v-if="displayedEntries.length > 0">
+          <tr>
+            <th>Courier</th>
+            <th>Destination</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+          </tr>
+          <tr :key="entry.id" v-for="entry in displayedEntries">
+            <td>{{entry.courier}}</td>
+            <td>{{entry.destination}}</td>
+            <td>{{entry.startTime}}</td>
+            <td>{{entry.endTime}}</td>
+          </tr>
+        </table>
+        <h4 v-else>No entries exist for the selected filter</h4>
+      </div>
+
+      <div class="input">
+        <button @click="toggleForm()">
+          {{showForm?"Hide Form":"Create New Entry"}}
+        </button>
+
+        <form v-if="showForm" @submit="addEntry">
+          <table>
+            <tr>
+              <td><label for="courier">Courier </label></td>
+              <td>
+                <select id="courier" v-model="courier">
+                  <option
+                    :key="courier.id"
+                    v-for="courier in couriers"
+                    :value="courier.id"
+                  >
+                    {{courier.name}}
+                  </option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="destination">Destination </label></td>
+              <td>
+                <select id="destination" v-model="destination">
+                  <option
+                    :key="destination.id"
+                    v-for="destination in destinations"
+                    :value="destination.id"
+                  >
+                    {{destination.name}}
+                  </option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td><label for="startDate">Start date </label></td>
+              <td>
+                <input
+                  type="datetime-local"
+                  id="startDate"
+                  v-model="startTime"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td><label for="endDate">Start date </label></td>
+              <td>
+                <input type="datetime-local" id="endDate" v-model="endTime" />
+              </td>
+            </tr>
+          </table>
+          <input type="submit" value="Add Entry" />
+        </form>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://unpkg.com/vue@3.2.36"></script>
+    <script type="text/javascript" src="./functions.js"></script>
+    <script type="text/javascript" src="./app.js"></script>
+  </body>
+</html>
