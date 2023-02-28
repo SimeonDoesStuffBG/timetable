@@ -9,10 +9,10 @@ const mysql = require("mysql2");
 // });
 
 const connection = mysql.createConnection({
-  host: "containers-us-west-111.railway.app",
-  user: "root",
-  password: "xcn7ItSXTaBJIgN0IRq4",
-  database: "railway",
+  host: process.env.MYSQLHOST,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
   connectTimeout: 60000,
 });
 
