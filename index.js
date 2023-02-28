@@ -30,7 +30,9 @@ app.get("/couriers", (req, res) => {
   });
 });
 
-app.get("/", (req, res) => {});
+app.get("/", (req, res) => {
+  res.send("<h1>It works</h1>");
+});
 
 app.get("/destinations", (req, res) => {
   const sql = "SELECT * FROM destination";
