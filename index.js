@@ -36,7 +36,7 @@ app.get("/couriers", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(__dirname, ".", "index.html");
+  res.sendFile(path.join(__dirname, ".", "index.html"));
 });
 
 app.get("/destinations", (req, res) => {
