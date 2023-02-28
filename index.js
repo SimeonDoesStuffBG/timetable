@@ -22,7 +22,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public/")));
 //app.use(express.urlencoded({ encoded: false }));
 app.use("/timetable", require("./routes/timetableRoutes"));
 
@@ -48,4 +48,9 @@ app.get("/destinations", (req, res) => {
   });
 });
 
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+app.listen(
+  PORT,
+  console.log(
+    `Server started on port ${PORT}\n${path.join(__dirname, "public")}`
+  )
+);
