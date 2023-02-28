@@ -21,19 +21,25 @@ const appObj = {
       this.reset();
     },
     async getCouriers() {
-      const res = await fetch("http://localhost:5000/couriers");
+      const res = await fetch(
+        "https://timetable-production-eff2.up.railway.app/couriers"
+      );
       const data = await res.json();
 
       this.couriers = data;
     },
     async getDestinations() {
-      const res = await fetch("http://localhost:5000/destinations");
+      const res = await fetch(
+        "https://timetable-production-eff2.up.railway.app/destinations"
+      );
       const data = await res.json();
 
       this.destinations = data;
     },
     async getTimeTableEntries() {
-      const res = await fetch("http://localhost:5000/timetable");
+      const res = await fetch(
+        "https://timetable-production-eff2.up.railway.app/timetable"
+      );
       const data = await res.json();
 
       this.timeTableEntries = data;
