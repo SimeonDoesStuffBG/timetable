@@ -3,6 +3,7 @@ const mysql = require("mysql");
 const cors = require("cors");
 const http = require("http");
 const fs = require("fs");
+const path = require("path");
 
 const db = require("./config/db");
 
@@ -18,6 +19,7 @@ db.connect((err) => {
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, ".")));
 //app.use(express.urlencoded({ encoded: false }));
 app.use("/timetable", require("./routes/timetableRoutes"));
 
@@ -31,7 +33,7 @@ app.get("/couriers", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("<h1>It works</h1>");
+  res.sendFile(__dirname, ".", "index.html");
 });
 
 app.get("/destinations", (req, res) => {
