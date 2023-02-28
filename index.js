@@ -26,6 +26,10 @@ app.use(express.static(path.join(__dirname, "public/")));
 //app.use(express.urlencoded({ encoded: false }));
 app.use("/timetable", require("./routes/timetableRoutes"));
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, ".", "index.html"));
+});
+
 app.get("/couriers", (req, res) => {
   const sql = "SELECT * FROM courier";
   db.query(sql, (err, result) => {
@@ -35,16 +39,13 @@ app.get("/couriers", (req, res) => {
   });
 });
 
-app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname, ".", "index.html"));
-});
-
 app.get("/destinations", (req, res) => {
   const sql = "SELECT * FROM destination";
   db.query(sql, (err, result) => {
     if (err) throw err;
 
     res.send(result);
+    console.log(result);
   });
 });
 
