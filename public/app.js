@@ -1,7 +1,7 @@
 const appObj = {
   data() {
     return {
-      showForm: true,
+      showForm: false,
       couriers: [],
       destinations: [],
 
