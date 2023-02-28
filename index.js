@@ -11,14 +11,14 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 
-db.connect((err) => {
-  if (err) {
-    console.log("No connection");
-    throw err;
-  }
+// db.connect((err) => {
+//   if (err) {
+//     console.log("No connection");
+//     throw err;
+//   }
 
-  console.log("Connected...");
-});
+//   console.log("Connected...");
+// });
 
 app.use(cors());
 app.use(express.json());
