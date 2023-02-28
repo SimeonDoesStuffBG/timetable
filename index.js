@@ -19,7 +19,7 @@ db.connect((err) => {
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ encoded: false }));
-app.use("/timetable", require("./backend/routes/timetableRoutes"));
+app.use("/timetable", require("./routes/timetableRoutes"));
 
 app.get("/couriers", (req, res) => {
   const sql = "SELECT * FROM courier";
