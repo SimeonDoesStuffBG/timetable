@@ -48,4 +48,7 @@ app.get("/destinations", (req, res) => {
   });
 });
 
-app.listen(PORT, console.log(`Server started on port ${PORT}`));
+app.listen(
+  PORT,
+  console.log(`Server started on port ${process.env.MYSQLDATABASE}`)
+);
