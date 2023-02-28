@@ -12,7 +12,10 @@ const PORT = process.env.PORT || 5000;
 const app = express();
 
 db.connect((err) => {
-  if (err) throw err;
+  if (err) {
+    console.log("No connection");
+    throw err;
+  }
 
   console.log("Connected...");
 });

@@ -13,6 +13,7 @@ const connection = mysql.createConnection({
   user: "root",
   password: "xcn7ItSXTaBJIgN0IRq4",
   database: "railway",
+  idleTimeout: 60000,
 });
 
 // const connection = mysql.createConnection({
