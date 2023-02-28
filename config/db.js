@@ -8,12 +8,12 @@ const mysql = require("mysql2");
 // database: "railway",
 // });
 
-const connection = mysql.createConnection({
+const connection = mysql.createPool({
+  connectionLimit: 10,
   host: process.env.MYSQLHOST,
   user: process.env.MYSQLUSER,
   password: process.env.MYSQLPASSWORD,
   database: process.env.MYSQLDATABASE,
-  connectTimeout: 60000,
 });
 
 // const connection = mysql.createConnection({
