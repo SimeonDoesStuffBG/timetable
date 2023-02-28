@@ -22,7 +22,7 @@ const appObj = {
     },
     async getCouriers() {
       const res = await fetch(
-        "https://timetable-production-eff2.up.railway.app/couriers"
+        "https://timetable-production-eff2.up.railway.app/api/couriers"
       );
       const data = await res.json();
 
@@ -30,7 +30,7 @@ const appObj = {
     },
     async getDestinations() {
       const res = await fetch(
-        "https://timetable-production-eff2.up.railway.app/destinations"
+        "https://timetable-production-eff2.up.railway.app/api/destinations"
       );
       const data = await res.json();
 
@@ -38,7 +38,7 @@ const appObj = {
     },
     async getTimeTableEntries() {
       const res = await fetch(
-        "https://timetable-production-eff2.up.railway.app/timetable"
+        "https://timetable-production-eff2.up.railway.app/api/timetable"
       );
       const data = await res.json();
 
@@ -66,7 +66,7 @@ const appObj = {
         return;
       }
 
-      await fetch("http://localhost:5000/timetable", {
+      await fetch("http://localhost:5000/api/timetable", {
         method: "POST",
         headers: {
           "Content-type": "application/json",
