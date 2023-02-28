@@ -1,4 +1,4 @@
-const mysql = require("mysql");
+const mysql = require("mysql2");
 
 // const connection = mysql.createConnection({
 // host: "containers-us-west-95.railway.app",
@@ -11,9 +11,8 @@ const mysql = require("mysql");
 const connection = mysql.createConnection({
   host: "containers-us-west-111.railway.app",
   user: "root",
-  password: "V9Y14gINY2suaD2LrfdI",
+  password: "xcn7ItSXTaBJIgN0IRq4",
   database: "railway",
-  port: 5992,
 });
 
 // const connection = mysql.createConnection({
