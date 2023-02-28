@@ -48,9 +48,4 @@ app.get("/destinations", (req, res) => {
   });
 });
 
-app.listen(
-  PORT,
-  console.log(
-    `Server started on port ${PORT}\n${path.join(__dirname, "public")}`
-  )
-);
+app.listen(PORT, console.log(`Server started on port ${PORT}`));
