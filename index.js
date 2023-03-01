@@ -25,9 +25,9 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, "public/")));
 app.use(express.urlencoded({ extended: false }));
 
-app.use("/api/timetable", require("./routes/timetableRoutes"));
-app.use("/api/couriers", require("./routes/courierRoutes"));
-app.use("/api/destinations", require("./routes/destinationRoutes"));
+app.use("/timetable", require("./routes/timetableRoutes"));
+app.use("/couriers", require("./routes/courierRoutes"));
+app.use("/destinations", require("./routes/destinationRoutes"));
 
 app.get("/", (req, res) => {
   let sql = "SELECT * FROM courier";
