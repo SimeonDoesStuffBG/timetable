@@ -31,11 +31,11 @@ app.use("/api/destinations", require("./routes/destinationRoutes"));
 app.get("/", (req, res) => {
   let sql = "SELECT * FROM courier";
 
-  db.query(sql, (err, result)=>{
-    if(err){
-      console.log(err);
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.log("meep");
     }
-  })
+  });
 
   res.sendFile(path.join(__dirname, ".", "index.html"));
 });
