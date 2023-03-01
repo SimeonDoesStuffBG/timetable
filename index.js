@@ -30,17 +30,6 @@ app.use("/couriers", require("./routes/courierRoutes"));
 app.use("/destinations", require("./routes/destinationRoutes"));
 
 app.get("/", (req, res) => {
-  let sql = "SELECT * FROM courier";
-
-  db.query(sql, (err, result) => {
-    if (err) {
-      console.log("meep");
-      console.log(err);
-      throw err;
-    }
-    console.log(result);
-  });
-
   res.sendFile(path.join(__dirname, ".", "index.html"));
 });
 
