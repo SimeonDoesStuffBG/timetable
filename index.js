@@ -35,6 +35,7 @@ app.get("/", (req, res) => {
     if (err) {
       console.log("meep");
     }
+    console.log(result);
   });
 
   res.sendFile(path.join(__dirname, ".", "index.html"));
